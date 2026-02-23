@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter_hello_world/providers/car_provider.dart';
 import 'package:flutter_hello_world/providers/joke_provider.dart';
 import 'package:flutter_hello_world/screens/jokes_screen.dart';
+import 'package:flutter_hello_world/screens/tmb_screen.dart';
+import 'package:flutter_hello_world/providers/tmb_provider.dart';
 
 void main() {
   runApp(
@@ -10,6 +12,7 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => CarProvider()),
         ChangeNotifierProvider(create: (_) => JokeProvider()),
+        ChangeNotifierProvider(create: (_) => TmbProvider()),
       ],
       child: const MyApp(),
     ),
@@ -65,6 +68,17 @@ class HomeScreen extends StatelessWidget {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(builder: (_) => const JokesScreen()),
+            ),
+          ),
+          const Divider(),
+          ListTile(
+            leading: const Icon(Icons.directions_bus),
+            title: const Text('Exercici 4: TMB Barcelona'),
+            subtitle: const Text('Línies, parades i iBus'),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const TmbScreen()),
             ),
           ),
         ],
